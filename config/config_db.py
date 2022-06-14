@@ -11,7 +11,7 @@ def connection_db():
             port=3306,
             database="cnu_library",
             autocommit=True,
-            cursorclass=pymysql.cursors.DictCirsor
+            cursorclass=pymysql.cursors.DictCursor
 
         )
         return connection

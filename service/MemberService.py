@@ -19,3 +19,28 @@ def get_members():
     for row in rows:
         print(f':: {row.values()}')
     print(':::::::::::::::::::::::::::::::::::::::::::::::::::::::::')
+
+
+# 회원유무 판단
+def member_match(member_num):
+    conn = connection_db()
+
+
+    try:
+        curs = conn.cursor()
+        sql = f'''
+                SELECT *
+                FROM tbl_member
+                WHERE member_id = "{member_num}"
+              '''
+        curs.execute(sql)
+        result = curs.rowcount
+    finally:
+        conn.close()
+
+    return result
+
+
+
+
+
